@@ -1,0 +1,4 @@
+﻿https://www.vg.no/rss/feed/forsiden/ VG
+http://www.nrk.no/toppsaker.rss NRK
+https://www.dn.no/rss/ DN
+http://feeds.bbci.co.uk/news/rss.xml BBC

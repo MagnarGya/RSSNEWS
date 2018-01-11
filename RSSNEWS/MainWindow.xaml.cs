@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace RSSNEWS
 {
     /// <summary>
@@ -20,9 +21,25 @@ namespace RSSNEWS
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<News> newsList;
+        RSSFetcher fetcher;
+
         public MainWindow()
         {
+            newsList = new List<News>();
+            fetcher = new RSSFetcher(newsList);
             InitializeComponent();
+            
+            NewsList.ItemsSource = newsList;
+        }
+
+        
+
+        private void ListViewItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var item = (sender as ListViewItem).DataContext as News;
+
+            System.Diagnostics.Process.Start(item.Link);
         }
     }
 }

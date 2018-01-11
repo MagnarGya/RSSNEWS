@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RSSNEWS"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="News feed" >
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="Exit"/>
+            </MenuItem>
+            <MenuItem Header="RSS settings">
+                <MenuItem Header="List"/>
+                
+            </MenuItem>
+        </Menu>
+        <StackPanel>
+            <ListView Name="NewsList">
+                <ListView.View>
+                    <GridView >
+                        <!-- <GridViewColumn Header="" DisplayMemberBinding="{Binding Image}"/>-->
+                        <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}"/>
+                        <GridViewColumn Header="Time" DisplayMemberBinding="{Binding Date}"/>
+                        <GridViewColumn Header="Source" DisplayMemberBinding="{Binding Source}"/>
+                    </GridView>
+                </ListView.View>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_PreviewMouseLeftButtonDown" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+        </StackPanel>
+    </DockPanel>
 </Window>
